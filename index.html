@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Newlogic VR</title>
+    <meta name="description" content="Newlogic VR">
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+        <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+        <a-asset-item id="logo" src="logo.obj"></a-asset-item>
+        <a-asset-item id="logo-mtl" src="logo.mtl"></a-asset-item>
+      </a-assets>
+
+      <a-entity obj-model="obj: #logo; mtl: #logo-mtl" position="0 2 -5" rotation="90 0 0" scale="0.05 0.05 0.05">
+        <a-animation attribute="rotation" begin="click" dur="2000" to="90 0 360"></a-animation>
+        <a-animation attribute="position" direction="alternate" dur="2000" repeat="indefinite"
+                     to="0 2.2 -5"></a-animation>
+        <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+        <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
+      </a-entity>
+
+      <a-sky height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"></a-sky>
+      <a-plane src="#groundTexture" rotation="-90 0 0" height="100" width="100"></a-plane>
+    </a-scene>
+  </body>
+</html>
